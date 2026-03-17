@@ -1,0 +1,64 @@
+{
+  "landingPage": "/wp-admin",
+  "preferredVersions": {
+    "php": "8.2",
+    "wp": "latest"
+  },
+  "steps": [
+    {
+      "step": "login",
+      "username": "admin",
+      "password": "password"
+    },
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "VITAL",
+        "blogdescription": "Where great design is brought back to life."
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "wordpress.org/themes",
+        "slug": "twentytwentyfive"
+      }
+    },
+    {
+      "step": "activateTheme",
+      "themeName": "twentytwentyfive"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/logo-cropped.png",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/logo-cropped.png"
+      }
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/uploads/logo-uncropped.jpg",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/logo-uncropped.jpg"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "\n<?php\nrequire_once ABSPATH . 'wp-load.php';\n\n$pid = wp_insert_post(array(\n    'post_title'     => 'Case Files',\n    'post_name'      => 'workshop-checklist',\n    'post_status'    => 'publish',\n    'post_type'      => 'page',\n    'comment_status' => 'closed',\n    'post_content'   => '',\n));\n\n$c  = '<!-- wp:heading {\"level\":1} --><h1 class=\"wp-block-heading\">The Design Morgue &mdash; Case Files</h1><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p>Five specimens. Five preventable deaths. Examine each exhibit, diagnose the crime, and attempt resuscitation. You are the forensic designer now.</p><!-- /wp:paragraph -->';\n\n$c .= '<!-- wp:separator --><hr class=\"wp-block-separator has-alpha-channel-opacity\"/><!-- /wp:separator -->';\n\n$c .= '<!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Exhibit A &mdash; The Mutilated Logo</h2><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p><strong>Cause of death:</strong> Excessive whitespace around the logo mark. The brand drowns in its own canvas. Nobody sees the name &mdash; they see emptiness.</p><!-- /wp:paragraph -->';\n$c .= '<!-- wp:image {\"sizeSlug\":\"full\"} --><figure class=\"wp-block-image size-full\"><img src=\"' . content_url('uploads/logo-uncropped.jpg') . '\" alt=\"The victim: a logo with excessive whitespace\"/><figcaption class=\"wp-element-caption\">The victim. Note the sea of white. The logo occupies roughly 15% of its own file.</figcaption></figure><!-- /wp:image -->';\n$c .= '<!-- wp:image {\"sizeSlug\":\"full\"} --><figure class=\"wp-block-image size-full\"><img src=\"' . content_url('uploads/logo-cropped.png') . '\" alt=\"The cure: logo cropped tight to its visual bounds\"/><figcaption class=\"wp-element-caption\">The cure. Cropped tight to its visual bounds. Same mark, different confidence.</figcaption></figure><!-- /wp:image -->';\n$c .= '<!-- wp:paragraph --><p><strong>Your task:</strong> Go to Appearance &rarr; Editor &rarr; Header. Replace the site logo with the properly cropped version from the Media Library (search &ldquo;cropped&rdquo;). Compare how the header feels before and after.</p><!-- /wp:paragraph -->';\n\n$c .= '<!-- wp:separator --><hr class=\"wp-block-separator has-alpha-channel-opacity\"/><!-- /wp:separator -->';\n\n$c .= '<!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Exhibit B &mdash; The Accent Color Massacre</h2><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p><strong>Cause of death:</strong> Everything is highlighted. When every element screams for attention, nothing gets it. The eye has nowhere to land.</p><!-- /wp:paragraph -->';\n$c .= '<!-- wp:paragraph --><p><strong>Your task:</strong> Open the home page in the Site Editor. Find a section where more than two elements share the same accent color. Remove the accent from all but one &mdash; the most important call-to-action. Save and compare.</p><!-- /wp:paragraph -->';\n\n$c .= '<!-- wp:separator --><hr class=\"wp-block-separator has-alpha-channel-opacity\"/><!-- /wp:separator -->';\n\n$c .= '<!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Exhibit C &mdash; The Pale Witness</h2><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p><strong>Cause of death:</strong> A low-resolution image used at full-width. The pixels are visible. The brand looks cheap.</p><!-- /wp:paragraph -->';\n$c .= '<!-- wp:paragraph --><p><strong>Your task:</strong> In the Media Library, find the image labelled &ldquo;Specimen&rdquo;. Note its dimensions. Now go to the home page in the Site Editor and find where it is used. Replace it with the high-resolution version (labelled &ldquo;Specimen HD&rdquo;). Notice the difference in perceived quality.</p><!-- /wp:paragraph -->';\n\n$c .= '<!-- wp:separator --><hr class=\"wp-block-separator has-alpha-channel-opacity\"/><!-- /wp:separator -->';\n\n$c .= '<!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Exhibit D &mdash; The Void</h2><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p><strong>Cause of death:</strong> No breathing room. Text and elements are compressed together, creating visual claustrophobia. The layout communicates panic, not elegance.</p><!-- /wp:paragraph -->';\n$c .= '<!-- wp:paragraph --><p><strong>Your task:</strong> Open the home page in the Site Editor. Find a Group or Cover block that feels cramped. Add padding: top and bottom 40px minimum. Save and compare the before and after. Notice how space communicates confidence.</p><!-- /wp:paragraph -->';\n\n$c .= '<!-- wp:separator --><hr class=\"wp-block-separator has-alpha-channel-opacity\"/><!-- /wp:separator -->';\n\n$c .= '<!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Exhibit E &mdash; The Palette Paradox</h2><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p><strong>Cause of death:</strong> The wrong background for the content type. Dark backgrounds reduce eye strain in long reading sessions. White backgrounds aid legibility for text-heavy layouts. Neither is wrong &mdash; but they are not interchangeable.</p><!-- /wp:paragraph -->';\n$c .= '<!-- wp:paragraph --><p><strong>Your task:</strong> Open the Style panel in the Site Editor (the half-circle icon). Switch the background color from light to dark. Review the home page. Does the content type suit the dark treatment? Switch back and note which palette the brand actually needs &mdash; and why.</p><!-- /wp:paragraph -->';\n\n$c .= '<!-- wp:separator --><hr class=\"wp-block-separator has-alpha-channel-opacity\"/><!-- /wp:separator -->';\n\n$c .= '<!-- wp:heading {\"level\":2} --><h2 class=\"wp-block-heading\">Your Conclusions</h2><!-- /wp:heading -->';\n$c .= '<!-- wp:paragraph --><p>Close the tab when you are done. The morgue does not keep records &mdash; only lessons.</p><!-- /wp:paragraph -->';\n\nwp_update_post(array('ID' => $pid, 'post_content' => $c));\n\n// Pre-load both logo images into the media library\n$base = WP_CONTENT_DIR . '/uploads/';\n\n$att1 = array(\n    'post_title'     => 'VITAL Logo (Cropped)',\n    'post_mime_type' => 'image/png',\n    'post_status'    => 'inherit',\n);\nwp_insert_attachment($att1, $base . 'logo-cropped.png', 0);\n\n$att2 = array(\n    'post_title'     => 'VITAL Logo (Uncropped \u2014 specimen)',\n    'post_mime_type' => 'image/jpeg',\n    'post_status'    => 'inherit',\n);\nwp_insert_attachment($att2, $base . 'logo-uncropped.jpg', 0);\n\necho 'done';\n"
+    },
+    {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/mu-plugins"
+    },
+    {
+      "step": "writeFile",
+      "path": "/wordpress/wp-content/mu-plugins/design-morgue.php",
+      "data": {
+        "resource": "url",
+        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/mu-plugin.php"
+      }
+    }
+  ]
+}
