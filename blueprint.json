@@ -18,17 +18,6 @@
       }
     },
     {
-      "step": "installTheme",
-      "themeData": {
-        "resource": "wordpress.org/themes",
-        "slug": "twentytwentyfive"
-      }
-    },
-    {
-      "step": "activateTheme",
-      "themeFolderName": "twentytwentyfive"
-    },
-    {
       "step": "writeFile",
       "path": "/wordpress/wp-content/uploads/logo-cropped.png",
       "data": {
