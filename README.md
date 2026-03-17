@@ -4,7 +4,7 @@ A WordPress Playground workshop on web design fundamentals. Five specimens. Five
 
 ## Launch the workshop
 
-[Open in WordPress Playground →](https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/JosVelasco/design-morgue/main/blueprint.json)
+[Open in WordPress Playground →](https://playground.wordpress.net/?blueprint-url=https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/blueprint.json)
 
 No install. No server. Runs entirely in the browser. Closing the tab destroys the environment.
 

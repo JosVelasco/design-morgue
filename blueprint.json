@@ -22,7 +22,7 @@
       "path": "/wordpress/wp-content/uploads/logo-cropped.png",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/logo-cropped.png"
+        "url": "https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/images/logo-cropped.png"
       }
     },
     {
@@ -30,7 +30,7 @@
       "path": "/wordpress/wp-content/uploads/logo-uncropped.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/logo-uncropped.jpg"
+        "url": "https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/images/logo-uncropped.jpg"
       }
     },
     {
@@ -38,7 +38,7 @@
       "path": "/wordpress/wp-content/uploads/specimen-lowres.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/specimen-lowres.jpg"
+        "url": "https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/images/specimen-lowres.jpg"
       }
     },
     {
@@ -46,7 +46,7 @@
       "path": "/wordpress/wp-content/uploads/specimen-hires.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/specimen-hires.jpg"
+        "url": "https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/images/specimen-hires.jpg"
       }
     },
     {
@@ -54,7 +54,7 @@
       "path": "/wordpress/wp-content/uploads/banner.jpg",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/images/banner.jpg"
+        "url": "https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/images/banner.jpg"
       }
     },
     {
@@ -70,7 +70,7 @@
       "path": "/wordpress/wp-content/mu-plugins/design-morgue.php",
       "data": {
         "resource": "url",
-        "url": "https://raw.githubusercontent.com/JosVelasco/design-morgue/main/mu-plugin.php"
+        "url": "https://cdn.jsdelivr.net/gh/JosVelasco/design-morgue@main/mu-plugin.php"
       }
     }
   ]
