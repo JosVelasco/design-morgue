@@ -18,6 +18,10 @@
       }
     },
     {
+      "step": "mkdir",
+      "path": "/wordpress/wp-content/uploads"
+    },
+    {
       "step": "writeFile",
       "path": "/wordpress/wp-content/uploads/logo-cropped.png",
       "data": {
