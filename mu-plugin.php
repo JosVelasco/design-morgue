@@ -36,12 +36,8 @@ add_action( 'enqueue_block_editor_assets', function () {
 } );
 
 // Quiz styles loaded in footer to override QSM's own stylesheet.
-// DEBUG: search page source for "dm-footer-fired" to confirm this hook runs.
 add_action( 'wp_footer', function () {
-	echo '<!-- dm-footer-fired -->';
 	echo '<style>
-		/* dm-debug-test: if this rule applies the page title will have a red outline */
-		.wp-block-post-title { outline: 3px solid red !important; }
 		.qsm-quiz-container.qmn_quiz_container .mlw_qmn_question p { font-weight: bold !important; }
 		.qmn_btn,
 		.qsm-quiz-container.qmn_quiz_container .qmn_btn,
