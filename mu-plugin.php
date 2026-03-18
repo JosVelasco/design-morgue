@@ -35,18 +35,32 @@ add_action( 'enqueue_block_editor_assets', function () {
 	' );
 } );
 
-// Quiz styles loaded in footer to override QSM's own stylesheet.
+// Quiz styles and auto-submit loaded in footer to override QSM's own stylesheet.
 add_action( 'wp_footer', function () {
 	echo '<style>
 		.qsm-quiz-container.qmn_quiz_container .mlw_qmn_question p { font-weight: bold !important; }
-		.qmn_btn,
-		.qsm-quiz-container.qmn_quiz_container .qmn_btn,
-		.qsm-quiz-container.qmn_quiz_container .btn {
-			color: #ffffff !important;
-			background: #c0392b !important;
-			border-color: #c0392b !important;
-		}
-	</style>';
+		.qsm-submit-btn { display: none !important; }
+	</style>
+	<script>
+	(function () {
+		var submitted = false;
+		document.addEventListener("change", function (e) {
+			if (submitted) return;
+			var radio = e.target.closest(".qsm-quiz-container input[type=\'radio\']");
+			if (!radio) return;
+			var form = e.target.closest("form");
+			if (!form) return;
+			var names = new Set();
+			form.querySelectorAll(".mlw_qmn_question input[type=\'radio\']").forEach(function (r) { names.add(r.name); });
+			var allAnswered = Array.from(names).every(function (n) { return form.querySelector("input[name=\'" + n + "\']:checked"); });
+			if (allAnswered) {
+				submitted = true;
+				var btn = form.querySelector(".qsm-submit-btn");
+				if (btn) btn.click();
+			}
+		});
+	}());
+	</script>';
 }, 99 );
 
 // Render the admin notice.
