@@ -35,9 +35,17 @@ add_action( 'enqueue_block_editor_assets', function () {
 	' );
 } );
 
-// Bold question text on the front end quiz page.
+// Quiz styles: bold questions, brand-coloured submit button.
 add_action( 'wp_head', function () {
-	echo '<style>.mlw_qmn_question p { font-weight: bold; }</style>';
+	echo '<style>
+		.qsm-quiz-container .mlw_qmn_question p { font-weight: bold !important; }
+		.qsm-quiz-container .qsm-btn,
+		.qsm-quiz-container .qmn_btn {
+			color: #ffffff !important;
+			background: #c0392b !important;
+			border-color: #c0392b !important;
+		}
+	</style>';
 } );
 
 // Render the admin notice.
