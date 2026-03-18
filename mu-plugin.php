@@ -35,6 +35,11 @@ add_action( 'enqueue_block_editor_assets', function () {
 	' );
 } );
 
+// Bold question text on the front end quiz page.
+add_action( 'wp_head', function () {
+	echo '<style>.mlw_qmn_question p { font-weight: bold; }</style>';
+} );
+
 // Render the admin notice.
 add_action( 'admin_notices', function () {
 	$checklist = get_page_by_path( 'workshop-checklist' );
