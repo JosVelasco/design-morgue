@@ -35,18 +35,19 @@ add_action( 'enqueue_block_editor_assets', function () {
 	' );
 } );
 
-// Quiz styles: bold questions, brand-coloured submit button.
-add_action( 'wp_head', function () {
+// Quiz styles loaded in footer to override QSM's own stylesheet.
+add_action( 'wp_footer', function () {
 	echo '<style>
-		.qsm-quiz-container .mlw_qmn_question p { font-weight: bold !important; }
-		.qsm-quiz-container .qsm-btn,
-		.qsm-quiz-container .qmn_btn {
+		.qsm-quiz-container.qmn_quiz_container .mlw_qmn_question p { font-weight: bold !important; }
+		.qmn_btn,
+		.qsm-quiz-container.qmn_quiz_container .qmn_btn,
+		.qsm-quiz-container.qmn_quiz_container .btn {
 			color: #ffffff !important;
 			background: #c0392b !important;
 			border-color: #c0392b !important;
 		}
 	</style>';
-} );
+}, 99 );
 
 // Render the admin notice.
 add_action( 'admin_notices', function () {
