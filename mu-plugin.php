@@ -40,6 +40,9 @@ add_action( 'wp_footer', function () {
 	echo '<style>
 		.qsm-quiz-container.qmn_quiz_container .mlw_qmn_question p { font-weight: bold !important; }
 		.qsm-submit-btn { display: none !important; }
+		.mlw_custom_start { display: none !important; }
+		.mlw_previous { display: none !important; }
+		.quiz_section.qsm-question-wrapper { margin-bottom: 30px; }
 	</style>';
 }, 99 );
 
